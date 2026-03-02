@@ -1,0 +1,12 @@
+# Các thư mục chứa dữ liệu ảnh/crawl
+data/
+data2/
+
+# Các file tạm của Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# File môi trường ảo (nếu có)
+venv/
+.venv/
