@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+    <!-- ============================================
+         META TAGS & SEO
+    ============================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio cá nhân - Frontend Developer chuyên về React, Next.js và UI/UX Design. Khám phá các dự án và kỹ năng của tôi.">
+    <meta name="keywords" content="frontend developer, web developer, react, nextjs, portfolio, UI/UX">
+    <meta name="author" content="Long Lê">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Long Lê | Frontend Developer">
+    <meta property="og:description" content="Portfolio cá nhân - Frontend Developer & UI/UX Designer">
+    <meta property="og:url" content="https://longlv.dev">
+
+    <title>Long Lê | Frontend Developer & UI/UX Designer</title>
+
+    <!-- ============================================
+         EXTERNAL RESOURCES
+    ============================================ -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS - Animate On Scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ============================================
+         LOADING SCREEN
+    ============================================ -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="loader-bracket">{</span>
+                <span class="loader-name">LL</span>
+                <span class="loader-bracket">}</span>
+            </div>
+            <div class="loader-bar">
+                <div class="loader-bar-fill"></div>
+            </div>
+            <p class="loader-text">Đang tải...</p>
+        </div>
+    </div>
+
+    <!-- ============================================
+         CUSTOM CURSOR
+    ============================================ -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- ============================================
+         NAVIGATION BAR
+    ============================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="#hero" class="nav-logo">
+                <span class="logo-bracket">{</span>
+                <span class="logo-text">LL</span>
+                <span class="logo-bracket">}</span>
+            </a>
+
+            <!-- Nav Links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="nav-link active" data-section="hero">Trang chủ</a></li>
+                <li><a href="#about" class="nav-link" data-section="about">Giới thiệu</a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills">Kỹ năng</a></li>
+                <li><a href="#experience" class="nav-link" data-section="experience">Kinh nghiệm</a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">Dự án</a></li>
+                <li><a href="#certificates" class="nav-link" data-section="certificates">Chứng chỉ</a></li>
+                <li><a href="#blog" class="nav-link" data-section="blog">Blog</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">Liên hệ</a></li>
+            </ul>
+
+            <!-- Right Side Controls -->
+            <div class="nav-controls">
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HERO SECTION
+    ============================================ -->
+    <section id="hero" class="hero-section">
+        <!-- Particles Background -->
+        <canvas id="particlesCanvas" class="particles-canvas"></canvas>
+
+        <div class="hero-container">
+            <div class="hero-content">
+                <!-- Badge -->
+                <div class="hero-badge" data-aos="fade-down" data-aos-delay="200">
+                    <span class="badge-dot"></span>
+                    Sẵn sàng cho dự án mới
+                </div>
+
+                <!-- Greeting -->
+                <p class="hero-greeting" data-aos="fade-up" data-aos-delay="300">Xin chào, tôi là</p>
+
+                <!-- Name with Gradient -->
+                <h1 class="hero-name" data-aos="fade-up" data-aos-delay="400">
+                    Long <span class="text-gradient">Lê</span>
+                </h1>
+
+                <!-- Typewriter Title -->
+                <div class="hero-title" data-aos="fade-up" data-aos-delay="500">
+                    <span class="title-prefix">&gt; </span>
+                    <span class="typewriter" id="typewriter"></span>
+                    <span class="typewriter-cursor">|</span>
+                </div>
+
+                <!-- Slogan -->
+                <p class="hero-slogan" data-aos="fade-up" data-aos-delay="600">
+                    "Biến ý tưởng thành trải nghiệm số — từng dòng code, từng pixel hoàn hảo."
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="700">
+                    <a href="#projects" class="btn btn-primary ripple-btn">
+                        <i class="fas fa-rocket"></i> Xem dự án
+                    </a>
+                    <a href="#contact" class="btn btn-outline ripple-btn">
+                        <i class="fas fa-paper-plane"></i> Liên hệ
+                    </a>
+                </div>
+
+                <!-- Social Links -->
+                <div class="hero-socials" data-aos="fade-up" data-aos-delay="800">
+                    <a href="https://github.com/longlv296" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://facebook.com/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="mailto:longlv296@gmail.com" class="social-link" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Avatar -->
+            <div class="hero-avatar" data-aos="zoom-in" data-aos-delay="500">
+                <div class="avatar-glow"></div>
+                <div class="avatar-ring"></div>
+                <div class="avatar-image">
+                    <div class="avatar-placeholder">
+                        <i class="fas fa-code"></i>
+                    </div>
+                </div>
+                <!-- Floating Tech Icons -->
+                <div class="floating-icon fi-1"><i class="fab fa-react"></i></div>
+                <div class="floating-icon fi-2"><i class="fab fa-js-square"></i></div>
+                <div class="floating-icon fi-3"><i class="fab fa-node-js"></i></div>
+                <div class="floating-icon fi-4"><i class="fab fa-figma"></i></div>
+                <div class="floating-icon fi-5"><i class="fab fa-git-alt"></i></div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="1000">
+            <div class="mouse">
+                <div class="mouse-wheel"></div>
+            </div>
+            <span>Cuộn xuống</span>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ABOUT ME SECTION
+    ============================================ -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">&lt;giới thiệu /&gt;</span>
+                <h2 class="section-title">Về <span class="text-gradient">Tôi</span></h2>
+                <p class="section-subtitle">Tìm hiểu thêm về con người và hành trình của tôi</p>
+            </div>
+
+            <div class="about-grid">
+                <!-- About Info Cards -->
+                <div class="about-info" data-aos="fade-right">
+                    <div class="info-card glass-card">
+                        <div class="info-icon"><i class="fas fa-user"></i></div>
+                        <div class="info-content">
+                            <h4>Họ và tên</h4>
+                            <p>Lê Văn Long</p>
+                        </div>
+                    </div>
+                    <div class="info-card glass-card">
+                        <div class="info-icon"><i class="fas fa-birthday-cake"></i></div>
+                        <div class="info-content">
+                            <h4>Tuổi</h4>
+                            <p>24 tuổi</p>
+                        </div>
+                    </div>
+                    <div class="info-card glass-card">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info-content">
+                            <h4>Nơi ở</h4>
+                            <p>Hồ Chí Minh, Việt Nam</p>
+                        </div>
+                    </div>
+                    <div class="info-card glass-card">
+                        <div class="info-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="info-content">
+                            <h4>Học vấn</h4>
+                            <p>Cử nhân CNTT — ĐH Công Nghệ Thông Tin</p>
+                        </div>
+                    </div>
+                    <div class="info-card glass-card">
+                        <div class="info-icon"><i class="fas fa-bullseye"></i></div>
+                        <div class="info-content">
+                            <h4>Định hướng</h4>
+                            <p>Fullstack Developer & UI/UX Expert</p>
+                        </div>
+                    </div>
+                    <div class="info-card glass-card">
+                        <div class="info-icon"><i class="fas fa-heart"></i></div>
+                        <div class="info-content">
+                            <h4>Sở thích</h4>
+                            <p>Coding, Design, Âm nhạc, Du lịch</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Description -->
+                <div class="about-description" data-aos="fade-left">
+                    <div class="glass-card about-text-card">
+                        <h3>Xin chào! <span class="wave">👋</span></h3>
+                        <p>
+                            Tôi là một <strong>Frontend Developer</strong> đam mê tạo ra những giao diện web đẹp mắt, 
+                            hiệu suất cao và trải nghiệm người dùng tuyệt vời. Với nền tảng vững chắc về 
+                            <strong>React, Next.js</strong> và thiết kế UI/UX, tôi luôn nỗ lực mang đến những sản phẩm 
+                            chất lượng nhất.
+                        </p>
+                        <p>
+                            Tính cách <strong>tỉ mỉ, sáng tạo</strong> và luôn ham học hỏi giúp tôi không ngừng 
+                            cải thiện bản thân. Tôi tin rằng code không chỉ là công cụ — mà là nghệ thuật.
+                        </p>
+                        <div class="about-goal">
+                            <h4><i class="fas fa-flag"></i> Mục tiêu 5 năm</h4>
+                            <p>
+                                Trở thành Senior Fullstack Developer, xây dựng các sản phẩm SaaS có impact lớn, 
+                                và đóng góp cho cộng đồng open-source.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Animated Counters -->
+            <div class="counters-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="counter-card glass-card">
+                    <div class="counter-number" data-target="2">0</div>
+                    <span class="counter-plus">+</span>
+                    <p class="counter-label">Năm kinh nghiệm</p>
+                </div>
+                <div class="counter-card glass-card">
+                    <div class="counter-number" data-target="15">0</div>
+                    <span class="counter-plus">+</span>
+                    <p class="counter-label">Dự án hoàn thành</p>
+                </div>
+                <div class="counter-card glass-card">
+                    <div class="counter-number" data-target="5">0</div>
+                    <span class="counter-plus">+</span>
+                    <p class="counter-label">Khách hàng</p>
+                </div>
+                <div class="counter-card glass-card">
+                    <div class="counter-number" data-target="500">0</div>
+                    <span class="counter-plus">+</span>
+                    <p class="counter-label">Commit trên Github</p>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="about-timeline" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="timeline-heading"><i class="fas fa-road"></i> Hành trình của tôi</h3>
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <span class="timeline-date">2019 - 2023</span>
+                            <h4>Đại học CNTT</h4>
+                            <p>Học tập và nghiên cứu chuyên ngành Kỹ thuật phần mềm</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <span class="timeline-date">2022</span>
+                            <h4>Internship đầu tiên</h4>
+                            <p>Bắt đầu thực tập tại công ty phần mềm, làm quen với môi trường thực tế</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <span class="timeline-date">2023</span>
+                            <h4>Junior Developer</h4>
+                            <p>Chính thức trở thành Frontend Developer, tham gia các dự án thực tế</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <span class="timeline-date">2024 - Nay</span>
+                            <h4>Phát triển sự nghiệp</h4>
+                            <p>Nâng cao kỹ năng, xây dựng các dự án cá nhân và đóng góp open-source</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SKILLS SECTION
+    ============================================ -->
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">&lt;kỹ năng /&gt;</span>
+                <h2 class="section-title">Kỹ năng <span class="text-gradient">Chuyên môn</span></h2>
+                <p class="section-subtitle">Công nghệ và công cụ tôi sử dụng thành thạo</p>
+            </div>
+
+            <div class="skills-grid">
+                <!-- Technical Skills -->
+                <div class="skills-column" data-aos="fade-right">
+                    <h3 class="skills-heading"><i class="fas fa-code"></i> Technical Skills</h3>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name"><i class="fab fa-html5"></i> HTML5</span>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name"><i class="fab fa-css3-alt"></i> CSS3 / SASS</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name"><i class="fab fa-js-square"></i> JavaScript</span>
+                            <span class="skill-percent">88%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name"><i class="fab fa-react"></i> ReactJS / NextJS</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name"><i class="fab fa-node-js"></i> NodeJS</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name"><i class="fab fa-git-alt"></i> Git / Github</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name"><i class="fab fa-figma"></i> Figma / UI Design</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills & Tech Icons -->
+                <div class="skills-column" data-aos="fade-left">
+                    <h3 class="skills-heading"><i class="fas fa-brain"></i> Soft Skills</h3>
+
+                    <div class="soft-skills-grid">
+                        <div class="soft-skill-card glass-card">
+                            <i class="fas fa-comments"></i>
+                            <span>Giao tiếp</span>
+                        </div>
+                        <div class="soft-skill-card glass-card">
+                            <i class="fas fa-users"></i>
+                            <span>Teamwork</span>
+                        </div>
+                        <div class="soft-skill-card glass-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Sáng tạo</span>
+                        </div>
+                        <div class="soft-skill-card glass-card">
+                            <i class="fas fa-clock"></i>
+                            <span>Quản lý thời gian</span>
+                        </div>
+                        <div class="soft-skill-card glass-card">
+                            <i class="fas fa-puzzle-piece"></i>
+                            <span>Giải quyết vấn đề</span>
+                        </div>
+                        <div class="soft-skill-card glass-card">
+                            <i class="fas fa-book-open"></i>
+                            <span>Tự học</span>
+                        </div>
+                    </div>
+
+                    <!-- Tech Stack Icons -->
+                    <h3 class="skills-heading" style="margin-top: 2.5rem;"><i class="fas fa-layer-group"></i> Tech Stack</h3>
+                    <div class="tech-stack-grid">
+                        <div class="tech-icon" title="HTML5"><i class="fab fa-html5"></i></div>
+                        <div class="tech-icon" title="CSS3"><i class="fab fa-css3-alt"></i></div>
+                        <div class="tech-icon" title="JavaScript"><i class="fab fa-js-square"></i></div>
+                        <div class="tech-icon" title="React"><i class="fab fa-react"></i></div>
+                        <div class="tech-icon" title="Node.js"><i class="fab fa-node-js"></i></div>
+                        <div class="tech-icon" title="Git"><i class="fab fa-git-alt"></i></div>
+                        <div class="tech-icon" title="npm"><i class="fab fa-npm"></i></div>
+                        <div class="tech-icon" title="Docker"><i class="fab fa-docker"></i></div>
+                        <div class="tech-icon" title="Figma"><i class="fab fa-figma"></i></div>
+                        <div class="tech-icon" title="Python"><i class="fab fa-python"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         EXPERIENCE SECTION
+    ============================================ -->
+    <section id="experience" class="section experience-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">&lt;kinh nghiệm /&gt;</span>
+                <h2 class="section-title">Kinh nghiệm <span class="text-gradient">Làm việc</span></h2>
+                <p class="section-subtitle">Hành trình phát triển sự nghiệp chuyên nghiệp</p>
+            </div>
+
+            <div class="experience-timeline">
+                <!-- Experience Item 1 -->
+                <div class="exp-item" data-aos="fade-up">
+                    <div class="exp-dot">
+                        <div class="exp-dot-inner"></div>
+                    </div>
+                    <div class="exp-card glass-card">
+                        <div class="exp-header">
+                            <div>
+                                <h3 class="exp-role">Frontend Developer</h3>
+                                <p class="exp-company"><i class="fas fa-building"></i> TechCorp Solutions</p>
+                            </div>
+                            <span class="exp-period"><i class="fas fa-calendar-alt"></i> 01/2024 — Hiện tại</span>
+                        </div>
+                        <p class="exp-desc">
+                            Phát triển và bảo trì các ứng dụng web sử dụng React & Next.js. Tối ưu hóa hiệu suất 
+                            và trải nghiệm người dùng cho các sản phẩm SaaS phục vụ hàng nghìn người dùng.
+                        </p>
+                        <ul class="exp-achievements">
+                            <li><i class="fas fa-trophy"></i> Giảm 40% thời gian tải trang bằng code-splitting & lazy loading</li>
+                            <li><i class="fas fa-trophy"></i> Xây dựng design system cho toàn bộ sản phẩm</li>
+                            <li><i class="fas fa-trophy"></i> Mentor cho 2 junior developer mới</li>
+                        </ul>
+                        <div class="exp-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Item 2 -->
+                <div class="exp-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="exp-dot">
+                        <div class="exp-dot-inner"></div>
+                    </div>
+                    <div class="exp-card glass-card">
+                        <div class="exp-header">
+                            <div>
+                                <h3 class="exp-role">Junior Frontend Developer</h3>
+                                <p class="exp-company"><i class="fas fa-building"></i> Digital Agency VN</p>
+                            </div>
+                            <span class="exp-period"><i class="fas fa-calendar-alt"></i> 06/2023 — 12/2023</span>
+                        </div>
+                        <p class="exp-desc">
+                            Tham gia phát triển các website thương mại điện tử và landing page cho khách hàng. 
+                            Làm việc chặt chẽ với đội ngũ design để biến mockup thành sản phẩm thực tế.
+                        </p>
+                        <ul class="exp-achievements">
+                            <li><i class="fas fa-trophy"></i> Hoàn thành 8+ dự án đúng deadline</li>
+                            <li><i class="fas fa-trophy"></i> Đạt đánh giá 4.8/5 từ khách hàng</li>
+                        </ul>
+                        <div class="exp-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">SASS</span>
+                            <span class="tech-tag">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Item 3 -->
+                <div class="exp-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="exp-dot">
+                        <div class="exp-dot-inner"></div>
+                    </div>
+                    <div class="exp-card glass-card">
+                        <div class="exp-header">
+                            <div>
+                                <h3 class="exp-role">Frontend Intern</h3>
+                                <p class="exp-company"><i class="fas fa-building"></i> StartUp Hub</p>
+                            </div>
+                            <span class="exp-period"><i class="fas fa-calendar-alt"></i> 01/2022 — 05/2022</span>
+                        </div>
+                        <p class="exp-desc">
+                            Thực tập sinh frontend, học hỏi và phát triển kỹ năng lập trình thực tế. 
+                            Hỗ trợ team trong việc phát triển giao diện người dùng.
+                        </p>
+                        <ul class="exp-achievements">
+                            <li><i class="fas fa-trophy"></i> Được đánh giá "Excellent" khi kết thúc thực tập</li>
+                            <li><i class="fas fa-trophy"></i> Tự xây dựng 3 component libraries cho dự án nội bộ</li>
+                        </ul>
+                        <div class="exp-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">React</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PROJECTS SECTION
+    ============================================ -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">&lt;dự án /&gt;</span>
+                <h2 class="section-title">Dự án <span class="text-gradient">Nổi bật</span></h2>
+                <p class="section-subtitle">Một số dự án tâm huyết tôi đã thực hiện</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="project-filters" data-aos="fade-up" data-aos-delay="100">
+                <button class="filter-btn active" data-filter="all">Tất cả</button>
+                <button class="filter-btn" data-filter="react">React</button>
+                <button class="filter-btn" data-filter="nextjs">Next.js</button>
+                <button class="filter-btn" data-filter="javascript">JavaScript</button>
+                <button class="filter-btn" data-filter="fullstack">Fullstack</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card glass-card" data-category="react" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-name">E-Commerce Platform</h3>
+                        <p class="project-desc">Nền tảng thương mại điện tử đầy đủ tính năng với giỏ hàng, thanh toán, quản lý sản phẩm.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Redux</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card glass-card" data-category="nextjs" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-name">Task Management App</h3>
+                        <p class="project-desc">Ứng dụng quản lý công việc với drag & drop, real-time update, và thống kê tiến độ.</p>
+                        <div class="project-tech">
+                            <span>Next.js</span>
+                            <span>Prisma</span>
+                            <span>PostgreSQL</span>
+                            <span>Socket.IO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card glass-card" data-category="javascript" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-name">Weather Dashboard</h3>
+                        <p class="project-desc">Dashboard thời tiết real-time với animation đẹp, dự báo 7 ngày, bản đồ tương tác.</p>
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>API</span>
+                            <span>Chart.js</span>
+                            <span>CSS3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card glass-card" data-category="react" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-name">Movie Streaming UI</h3>
+                        <p class="project-desc">Giao diện streaming phim phong cách Netflix với tìm kiếm, đánh giá, danh sách yêu thích.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>TMDb API</span>
+                            <span>Firebase</span>
+                            <span>Styled Components</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card glass-card" data-category="fullstack" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-name">Real-Time Chat App</h3>
+                        <p class="project-desc">Ứng dụng chat real-time với phòng chat, gửi file, emoji, thông báo push.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>Socket.IO</span>
+                            <span>MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card glass-card" data-category="nextjs fullstack" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">
+                            <i class="fas fa-blog"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-name">Dev Blog Platform</h3>
+                        <p class="project-desc">Nền tảng blog cho developer với Markdown editor, syntax highlighting, SEO tối ưu.</p>
+                        <div class="project-tech">
+                            <span>Next.js</span>
+                            <span>MDX</span>
+                            <span>Tailwind</span>
+                            <span>Vercel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CERTIFICATES SECTION
+    ============================================ -->
+    <section id="certificates" class="section certificates-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">&lt;chứng chỉ /&gt;</span>
+                <h2 class="section-title">Chứng chỉ <span class="text-gradient">& Giải thưởng</span></h2>
+                <p class="section-subtitle">Những công nhận cho hành trình học tập</p>
+            </div>
+
+            <div class="certificates-grid">
+                <div class="cert-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="cert-icon"><i class="fab fa-react"></i></div>
+                    <h3>React Developer Certificate</h3>
+                    <p class="cert-org"><i class="fas fa-award"></i> Meta (Coursera)</p>
+                    <p class="cert-date">2024</p>
+                </div>
+                <div class="cert-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="cert-icon"><i class="fab fa-js-square"></i></div>
+                    <h3>JavaScript Algorithms</h3>
+                    <p class="cert-org"><i class="fas fa-award"></i> freeCodeCamp</p>
+                    <p class="cert-date">2023</p>
+                </div>
+                <div class="cert-card glass-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="cert-icon"><i class="fab fa-aws"></i></div>
+                    <h3>AWS Cloud Practitioner</h3>
+                    <p class="cert-org"><i class="fas fa-award"></i> Amazon Web Services</p>
+                    <p class="cert-date">2024</p>
+                </div>
+                <div class="cert-card glass-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="cert-icon"><i class="fas fa-palette"></i></div>
+                    <h3>Google UX Design</h3>
+                    <p class="cert-org"><i class="fas fa-award"></i> Google (Coursera)</p>
+                    <p class="cert-date">2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BLOG SECTION
+    ============================================ -->
+    <section id="blog" class="section blog-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">&lt;blog /&gt;</span>
+                <h2 class="section-title">Bài viết <span class="text-gradient">Mới nhất</span></h2>
+                <p class="section-subtitle">Chia sẻ kiến thức và kinh nghiệm lập trình</p>
+            </div>
+
+            <div class="blog-grid">
+                <div class="blog-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="blog-image">
+                        <div class="blog-image-placeholder">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <span class="blog-tag">React</span>
+                    </div>
+                    <div class="blog-info">
+                        <span class="blog-date"><i class="fas fa-calendar"></i> 15/02/2024</span>
+                        <h3>10 React Hooks bạn nên biết trong 2024</h3>
+                        <p>Khám phá các custom hooks hữu ích giúp code React của bạn sạch hơn, hiệu quả hơn...</p>
+                        <a href="#" class="blog-read-more">Đọc thêm <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="blog-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="blog-image">
+                        <div class="blog-image-placeholder">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <span class="blog-tag">Performance</span>
+                    </div>
+                    <div class="blog-info">
+                        <span class="blog-date"><i class="fas fa-calendar"></i> 01/02/2024</span>
+                        <h3>Tối ưu Web Performance: Hướng dẫn A-Z</h3>
+                        <p>Từ lazy loading đến code splitting, tìm hiểu cách làm website của bạn nhanh như chớp...</p>
+                        <a href="#" class="blog-read-more">Đọc thêm <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="blog-card glass-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="blog-image">
+                        <div class="blog-image-placeholder">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <span class="blog-tag">CSS</span>
+                    </div>
+                    <div class="blog-info">
+                        <span class="blog-date"><i class="fas fa-calendar"></i> 20/01/2024</span>
+                        <h3>CSS Tricks: Glassmorphism & Modern UI</h3>
+                        <p>Hướng dẫn tạo hiệu ứng Glass UI đẹp mắt chỉ với CSS thuần, không cần framework...</p>
+                        <a href="#" class="blog-read-more">Đọc thêm <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT SECTION
+    ============================================ -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">&lt;liên hệ /&gt;</span>
+                <h2 class="section-title">Liên hệ <span class="text-gradient">với tôi</span></h2>
+                <p class="section-subtitle">Hãy kết nối và cùng tạo nên điều tuyệt vời</p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-card glass-card">
+                        <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+                        <h4>Email</h4>
+                        <p>longlv296@gmail.com</p>
+                    </div>
+                    <div class="contact-card glass-card">
+                        <div class="contact-card-icon"><i class="fas fa-phone"></i></div>
+                        <h4>Điện thoại</h4>
+                        <p>+84 xxx xxx xxx</p>
+                    </div>
+                    <div class="contact-card glass-card">
+                        <div class="contact-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h4>Địa chỉ</h4>
+                        <p>Hồ Chí Minh, Việt Nam</p>
+                    </div>
+
+                    <!-- Social Icons -->
+                    <div class="contact-socials">
+                        <a href="https://facebook.com/" target="_blank" rel="noopener" class="contact-social-link ripple-btn" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://github.com/longlv296" target="_blank" rel="noopener" class="contact-social-link ripple-btn" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener" class="contact-social-link ripple-btn" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:longlv296@gmail.com" class="contact-social-link ripple-btn" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper" data-aos="fade-left">
+                    <form class="contact-form glass-card" id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Họ và tên</label>
+                            <input type="text" id="name" name="name" placeholder="Nhập tên của bạn" required>
+                            <span class="form-error" id="nameError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="email" name="email" placeholder="email@example.com" required>
+                            <span class="form-error" id="emailError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject"><i class="fas fa-tag"></i> Chủ đề</label>
+                            <input type="text" id="subject" name="subject" placeholder="Chủ đề tin nhắn" required>
+                            <span class="form-error" id="subjectError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="message"><i class="fas fa-comment-dots"></i> Tin nhắn</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Viết tin nhắn của bạn..." required></textarea>
+                            <span class="form-error" id="messageError"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit ripple-btn">
+                            <i class="fas fa-paper-plane"></i> Gửi tin nhắn
+                        </button>
+                        <div class="form-success" id="formSuccess">
+                            <i class="fas fa-check-circle"></i> Tin nhắn đã được gửi thành công!
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+    ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-bracket">{</span>
+                    <span class="logo-text">LL</span>
+                    <span class="logo-bracket">}</span>
+                </div>
+                <p class="footer-quote">"Code is like humor. When you have to explain it, it's bad." — Cory House</p>
+                <div class="footer-links">
+                    <a href="https://github.com/longlv296" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://facebook.com/" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                    <a href="mailto:longlv296@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+                <p class="footer-copyright">&copy; 2024 Long Lê. All rights reserved. Made with <span class="heart">&hearts;</span></p>
+            </div>
+        </div>
+
+        <!-- Back to Top -->
+        <button class="back-to-top" id="backToTop" aria-label="Back to top">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+    </footer>
+
+    <!-- ============================================
+         SCRIPTS
+    ============================================ -->
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+
+    <!-- AOS - Animate On Scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

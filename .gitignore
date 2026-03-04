@@ -1,6 +1,9 @@
 # Các thư mục chứa dữ liệu ảnh/crawl
 data/
 data2/
+data_shopee/
+data_tiki/
+data_amazon/
 
 # Các file tạm của Python
 __pycache__/
